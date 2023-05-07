@@ -51,4 +51,12 @@ export class ProductComponent implements OnInit {
     this.price_sorted_up = !this.price_sorted_up;
   }
 
+  addToCart(product: any) {
+    console.log(product);
+  }
+
+  addToWishlist(product: any) {
+    console.log(product);
+  }
+
 }

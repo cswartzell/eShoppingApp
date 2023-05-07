@@ -32,10 +32,19 @@
     <div class="container">
         <div class="row">
             <div *ngFor="let product of products" class="col-2 myDivClass">
-                <img src="{{product.thumbnail}}" width="130px" height="100px">
+                <img src="{{product.thumbnail}}" width="120px" height="100px">
                 <div>
                     <span>{{product.title}}</span>
                     <span>: ${{product.price}}</span>
+                    <br />
+                    <!-- <input type="button" value="Add to Cart" (click)="addToCart(product)">
+                    <input type="button" value="Add to Wishlist" (click)="addToWishlist(product)"> -->
+                    <a (click)="addToCart(product)">
+                        <img src="https://cdn-icons-png.flaticon.com/512/649/649931.png" height="50px" width="50px">
+                    </a>
+                    <a (click)=" addToWishlist(product)">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3132/3132924.png" height="50px" width="50px">
+                    </a>
                 </div>
             </div>
         </div>

@@ -16,6 +16,8 @@ import { CategoryComponent } from './components/category/category.component';
 import { UserComponent } from './components/user/user.component';
 import { OrderComponent } from './components/order/order.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { CartComponent } from './components/cart/cart.component';
+import { WishlistComponent } from './components/wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { SignupComponent } from './components/signup/signup.component';
     CategoryComponent,
     UserComponent,
     OrderComponent,
-    SignupComponent
+    SignupComponent,
+    CartComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,

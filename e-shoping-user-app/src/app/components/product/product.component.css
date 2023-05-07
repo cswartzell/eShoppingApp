@@ -4,4 +4,8 @@
     border-radius:5px;
     padding: 10px;
     background-color: #fdfdfd;
+    width:180px;
+}
+.a:hover {
+    cursor: pointer;
 }
