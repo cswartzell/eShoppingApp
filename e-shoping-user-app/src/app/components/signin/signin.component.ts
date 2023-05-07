@@ -28,8 +28,8 @@ export class SigninComponent implements OnInit {
         let result = data.find((u: any) => u.emailid == user.emailid && u.password == user.password)
         if (result != undefined) {
           // alert("logged in")
-          sessionStorage.setItem("user", user.emailid)
-          this.router.navigate(["home"])
+          sessionStorage.setItem("user", JSON.stringify(result));
+          this.router.navigate(["home"]);
         } else {
           // alert("Failed to Log In. Check email and password")
           this.msg = "Invalid email or password"

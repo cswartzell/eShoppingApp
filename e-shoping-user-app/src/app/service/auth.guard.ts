@@ -11,7 +11,7 @@ export class AuthGuard implements CanActivate {
   }
   canActivate(): boolean {
     //   console.log("I came here")
-    let obj = sessionStorage.getItem("admin");
+    let obj = sessionStorage.getItem("user");
     if (obj == null) {
       this.router.navigate(["login"]);
       return false;
