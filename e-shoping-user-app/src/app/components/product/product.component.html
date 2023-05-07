@@ -1,11 +1,11 @@
 <div>
-    <h2>Products</h2>
-    <table>
+    <h2>Products:</h2>
+    <!-- <table>
         <tr>
             <th>PID</th>
             <th>Name</th>
             <th>Desription</th>
-            <!-- <th>Price</th> -->
+             <th>Price</th> 
             <th><input type="button" value="Price" (click)="sortByPrice()"></th> 
             <th>Discount</th>
             <th>Rating</th>
@@ -28,5 +28,16 @@
             <td><img src="{{product.thumbnail}}" width="130px" height="100px"></td>
             <td><input type="button" value="Delete Product" (click)="deleteProduct(product.id)"></td>
         </tr>
-    </table>
+    </table> -->
+    <div class="container">
+        <div class="row">
+            <div *ngFor="let product of products" class="col-2 myDivClass">
+                <img src="{{product.thumbnail}}" width="130px" height="100px">
+                <div>
+                    <span>{{product.title}}</span>
+                    <span>: ${{product.price}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

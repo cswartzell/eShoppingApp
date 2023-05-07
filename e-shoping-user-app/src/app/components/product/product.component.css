@@ -1,0 +1,7 @@
+.myDivClass {
+    border: 1px black solid;
+    margin: 10px;
+    border-radius:5px;
+    padding: 10px;
+    background-color: #fdfdfd;
+}
