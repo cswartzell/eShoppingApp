@@ -23,13 +23,14 @@ export class AuthService {
     this.loggedIn.next(true);
   }
 
-  constructor(public httpClient:HttpClient) { }
+  constructor(public httpClient: HttpClient) { }
 
   signIn(): Observable<User[]> {
     return this.httpClient.get<User[]>("http://localhost:3000/users");
     // return (login.emailid == "admin@gmail.com" && login.password == "123");
+  }
 
-
-
+  signup(user: any): Observable<any> {
+    return this.httpClient.post("http://localhost:3000/users", user);
   }
 }

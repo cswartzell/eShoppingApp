@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Address } from 'src/app/model/Address';
 import { User } from 'src/app/model/user';
-import { Address } from "../../model/Address";
+import { AuthService } from 'src/app/service/auth.service';
+// import { Address } from "../../model/Address";
 
 @Component({
   selector: 'app-signup',
@@ -11,21 +13,21 @@ import { Address } from "../../model/Address";
 })
 export class SignupComponent implements OnInit {
   userRef!: FormGroup;
-  msg!:string
+  msg!: string
 
-  constructor(public formBuilder: FormBuilder) {
+  constructor(public router: Router, public formBuilder: FormBuilder, public authService: AuthService) {
   }
 
   ngOnInit(): void {
     this.userRef = this.formBuilder.group({
       username: [],
-      fullname: [],
+      fullName: [],
       address: this.formBuilder.group({
         street: [],
         city: [],
         state: [],
         country: [],
-        pincode: []
+        zipcode: []
       }),
       emailid: [],
       password: [],
@@ -37,6 +39,14 @@ export class SignupComponent implements OnInit {
 
   signUp(): void {
     let user = this.userRef.value;
-    console.log(user);
+    this.authService.signup(user).subscribe({
+      next: (result: any) => console.log(result),
+      error: (error: any) => console.log(error),
+      complete: () => {
+        console.log("User Added")
+        this.userRef.reset();
+        this.router.navigate(["home"])
+      }
+    })
   }
 }

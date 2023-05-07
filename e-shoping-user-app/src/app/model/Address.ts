@@ -5,7 +5,7 @@ export class Address {
         public city: string,
         public state: string,
         public country: string,
-        public pincode: number
+        public zipcode: number
     ) {
 
     }
