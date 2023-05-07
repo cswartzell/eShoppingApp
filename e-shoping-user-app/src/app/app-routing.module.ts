@@ -10,6 +10,7 @@ import { ProductComponent } from './components/product/product.component';
 import { CategoryComponent } from './components/category/category.component';
 import { UserComponent } from './components/user/user.component';
 import { OrderComponent } from './components/order/order.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 
 //Here we write navigation rules:
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: "aboutus", component: AboutusComponent },
   { path: "contactus", component: ContactusComponent },
   { path: "login", component: SigninComponent },
+  { path: "signup", component: SignupComponent },
 
   {
     path: "home", component: DashboardComponent, canActivate: [AuthGuard], children: [

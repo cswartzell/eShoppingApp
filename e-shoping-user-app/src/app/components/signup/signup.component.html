@@ -1,0 +1,42 @@
+<div>
+    <h2>Sign Up Page</h2>
+    <form [formGroup]="userRef" (ngSubmit)="signUp()">
+        <label>User Image: </label>
+        <input type="file" formControlName="img" /><br />
+        <label>Full Name: </label>
+        <input type="text" formControlName="fullname" /><br />
+        <label>Email Address: </label>
+        <input type="email" formControlName="emailid" /><br />
+        <label>Phone Number: </label>
+        <input type="number" formControlName="contact" /><br />
+        
+        <br />
+        <!-- <div [formGroup]="userRef.address"> -->
+        <span style="font-weight: bold;">Address:</span> <br />
+        <label>Street: </label>
+        <input type="text" formControlName="street" /><br />
+        <label>city: </label>
+        <input type="text" formControlName="city" /><br />
+        <label>State: </label>
+        <input type="text" formControlName="state" /><br />
+        <label>Country: </label>
+        <input type="text" formControlName="country" /><br />
+        <label>Zip Code: </label>
+        <input type="number" formControlName="pincode" /><br />
+        <!-- </div> -->
+
+        <br />
+        <label>Password: </label>
+        <input type="password" formControlName="password" /><br />
+        <label>Re-enter Password: </label>
+        <input type="password" formControlName="password2" /><br />
+        
+
+
+        <input type="submit" value="Sign In">
+        <input type="reset" value="reset">
+    </form>
+    <span style="color:red">{{msg}}</span>
+    <br />
+    <a routerLink="/signup">Sign Up</a>
+</div>

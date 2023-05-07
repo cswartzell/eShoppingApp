@@ -15,6 +15,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CategoryComponent } from './components/category/category.component';
 import { UserComponent } from './components/user/user.component';
 import { OrderComponent } from './components/order/order.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { OrderComponent } from './components/order/order.component';
     ProductComponent,
     CategoryComponent,
     UserComponent,
-    OrderComponent
+    OrderComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

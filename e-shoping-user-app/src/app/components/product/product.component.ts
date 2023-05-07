@@ -12,7 +12,7 @@ export class ProductComponent implements OnInit {
   constructor(public productService: ProductService) {
 
   }
-
+  price_sorted_up: boolean = true
   ngOnInit(): void {
     this.loadProducts();
   }
@@ -43,7 +43,12 @@ export class ProductComponent implements OnInit {
   }
 
   sortByPrice() {
-    this.products.sort((p1, p2) => p1.price - p2.price);
+    if (this.price_sorted_up) {
+      this.products.sort((p1, p2) => p1.price - p2.price);
+    } else {
+      this.products.sort((p1, p2) => p2.price - p1.price);
+    }
+    this.price_sorted_up = !this.price_sorted_up;
   }
 
 }
