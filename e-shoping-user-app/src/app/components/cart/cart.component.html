@@ -22,5 +22,8 @@
             <td><a (click)="remove(item, i)"><img src="https://cdn-icons-png.flaticon.com/512/63/63694.png" width="20px"
                         height="20px"></a></td>
         </tr>
+        <tr>
+            <td><input type="button" value="Proceed to Payment" (click)="proceedToPayment()"></td>
+        </tr>
         <tr>Total: ${{totalPrice}}.00</tr>
     </table>

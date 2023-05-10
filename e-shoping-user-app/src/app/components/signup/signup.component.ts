@@ -39,6 +39,7 @@ export class SignupComponent implements OnInit {
 
   signUp(): void {
     let user = this.userRef.value;
+    // this.userRef.get("city")?.setValue("Mumbai");
     this.authService.signup(user).subscribe({
       next: (result: any) => console.log(result),
       error: (error: any) => console.log(error),

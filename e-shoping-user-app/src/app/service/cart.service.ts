@@ -20,21 +20,20 @@ export class CartService {
     this.getCart.subscribe({
       next: (data: any) => {
         // Find if this item is already in the cart
-        let result = data.find((c: any) => c.title == product.title)
+        let result = data.findIndex((c: any) => c.title == product.title)
+        console.log(result);
+
         //if new item to cart:
-        if (result == undefined) {
+        if (result == -1) {
+          product.qty = 1;
           data.push(product);
           //I DO NOT understand this call
-          this.cartData.next(data);
+          // this.cartData.next(data);
           console.log(product.title + " added to cart");
-
+        } else {
+          //Why doesnt this fully work?
+          data[result].qty = data[result].qty + 1;
         }
-        // else {
-        //   result.qty += 1;
-        //   console.log(product.title + " quantity updated");
-        // }
-        // Need to actually make sure there is enough stock to add qty actually
-
       },
       error: (error: any) => { },
       complete: () => { }
@@ -42,8 +41,22 @@ export class CartService {
   }
 
   removeDataFromCart(product: any) {
-    console.log("delete " + product + " from cart");
-
+    // console.log("delete " + product + " from cart");
+    this.getCart.subscribe({
+      next: (data: any) => {
+        // Find if this item is already in the cart
+        let index = data.findIndex((c: any) => c.title == product.title)
+        //if new item to cart:
+        if (index >= 0) {
+          data.splice(index, 1);
+          //I DO NOT understand this call
+          // this.cartData.next(data);
+          console.log(product.title + " removed to cart");
+        }
+      },
+      error: (error: any) => { },
+      complete: () => { }
+    })
   }
 
 

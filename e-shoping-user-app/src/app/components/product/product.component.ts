@@ -55,7 +55,6 @@ export class ProductComponent implements OnInit {
 
   addToCart(product: any) {
     // console.log(product);
-    product.qty = 1
     this.cartService.addDataInCart(product);
   }
 
