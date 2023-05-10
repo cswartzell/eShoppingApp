@@ -414,23 +414,6 @@
       ]
     },
     {
-      "id": 22,
-      "title": "Elbow Macaroni - 400 gm",
-      "description": "Product details of Bake Parlor Big Elbow Macaroni - 400 gm",
-      "price": 14,
-      "discountPercentage": 15.58,
-      "rating": 4.57,
-      "stock": 146,
-      "brand": "Bake Parlor Big",
-      "category": "groceries",
-      "thumbnail": "https://i.dummyjson.com/data/products/22/thumbnail.jpg",
-      "images": [
-        "https://i.dummyjson.com/data/products/22/1.jpg",
-        "https://i.dummyjson.com/data/products/22/2.jpg",
-        "https://i.dummyjson.com/data/products/22/3.jpg"
-      ]
-    },
-    {
       "id": 23,
       "title": "Orange Essence Food Flavou",
       "description": "Specifications of Orange Essence Food Flavour For Cakes and Baking Food Item",
@@ -649,6 +632,12 @@
       "categoryDescription": "Furniture refers to movable objects intended to support various human activities such as seating (e.g., stools, chairs, and sofas), eating (tables), storing items, eating and/or working with an item, and sleeping (e.g., beds and hammocks).",
       "categoryImageUrl": "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTSZO5EPN03aYiYLWX9Up9rezcX76c1IWeYH0PZHggzIB86V1ydyEZQao2floA-LkHKFVaRLjMw8Dc5oYzhB3dDFjVWVp9rsb7MVI_677SSeHShJxElQtDccg&usqp=CAc",
       "id": 7
+    },
+    {
+      "categoryName": "Board Games",
+      "categoryDescription": "Table Top Board Games",
+      "categoryImageUrl": "https://static.thenounproject.com/png/1791780-200.png",
+      "id": 8
     }
   ],
   "orders": [

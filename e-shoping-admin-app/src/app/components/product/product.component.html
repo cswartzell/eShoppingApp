@@ -1,4 +1,4 @@
-<div>
+<div class="container">
     <h2>Products</h2>
     <table>
         <tr>
@@ -26,7 +26,10 @@
             <td>{{product.brand}}</td>
             <td>{{product.category}}</td>
             <td><img src="{{product.thumbnail}}" width="130px" height="100px"></td>
-            <td><input type="button" value="Delete Product" (click)="deleteProduct(product.id)"></td>
+            <!-- <td><input type="button" value="Delete Product" (click)="deleteProduct(product.id)"></td> -->
+            <td><a (click)="deleteProduct(product.id)">
+                <img src="https://cdn-icons-png.flaticon.com/512/484/484611.png" height="30px" width="30px">
+            </a></td>
         </tr>
     </table>
 </div>
