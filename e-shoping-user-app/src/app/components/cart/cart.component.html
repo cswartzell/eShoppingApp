@@ -4,7 +4,7 @@
             <th></th>
             <th>Item</th>
             <th>Price</th>
-            
+
             <th>Quantity</th>
             <th>+</th>
             <th>-</th>
@@ -17,8 +17,8 @@
             <td>{{item.qty}}</td>
             <td><a (click)="increment(item, i)"><img src="https://cdn-icons-png.flaticon.com/512/1237/1237946.png"
                         width="25px" height="25px"></a></td>
-            <td><a (click)="decrement(item, i)"><img src="https://cdn-icons-png.flaticon.com/512/56/56889.png" width="25px"
-                        height="25px"></a></td>
+            <td><a (click)="decrement(item, i)"><img src="https://cdn-icons-png.flaticon.com/512/56/56889.png"
+                        width="25px" height="25px"></a></td>
             <td><a (click)="remove(item, i)"><img src="https://cdn-icons-png.flaticon.com/512/63/63694.png" width="20px"
                         height="20px"></a></td>
         </tr>
@@ -27,3 +27,9 @@
         </tr>
         <tr>Total: ${{totalPrice}}.00</tr>
     </table>
+    <div *ngIf="paymentFlag">
+    <hr />
+    <br>
+        <h2>Payment Method Stub</h2>
+        <span>Cough It Up</span>
+    </div>

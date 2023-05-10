@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cart } from 'src/app/model/cart';
 import { Order } from 'src/app/model/Order';
 import { CartService } from 'src/app/service/cart.service';
+import { OrderService } from 'src/app/service/order.service';
 
 @Component({
   selector: 'app-cart',
@@ -9,12 +10,11 @@ import { CartService } from 'src/app/service/cart.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-
   cart: any = [];
   user: any;
   totalPrice: number = 0;
-
-  constructor(public cartService: CartService) { }
+  paymentFlag: Boolean = false
+  constructor(public cartService: CartService, public orderService: OrderService) { }
 
   ngOnInit(): void {
     let obj = sessionStorage.getItem("user")
@@ -83,5 +83,14 @@ export class CartComponent implements OnInit {
     // console.log(this.totalPrice);
     // console.log(this.user);
     console.log(orderDetails);
+    this.paymentFlag = true;
+    this.orderService.orderPlaced(orderDetails).subscribe({
+      next: (result: any) => console.log(result),
+      error: (error: any) => console.log((error)),
+      complete: () => console.log("Order Placed")
+    })
+    // Empty the cart
+    this.cart.splice(0,this.cart.length);
+    this.calculateTotal();
   }
 }
