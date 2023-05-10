@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Address } from 'src/app/model/Address';
-import { User } from 'src/app/model/user';
+import { User } from 'src/app/model/User';
 import { AuthService } from 'src/app/service/auth.service';
 // import { Address } from "../../model/Address";
 

@@ -11,6 +11,7 @@ import { CategoryComponent } from './components/category/category.component';
 import { UserComponent } from './components/user/user.component';
 import { OrderComponent } from './components/order/order.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { CartComponent } from './components/cart/cart.component';
 
 
 //Here we write navigation rules:
@@ -27,6 +28,7 @@ const routes: Routes = [
       { path: "category", component: CategoryComponent },
       { path: "user", component: UserComponent },
       { path: "order", component: OrderComponent },
+      { path: "cart", component: CartComponent },
       { path: "logout", component: LogoutComponent }
     ]
   }

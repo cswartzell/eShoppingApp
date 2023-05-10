@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/model/user';
+import { User } from 'src/app/model/User';
 import { AuthService } from '../../service/auth.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { AuthService } from '../../service/auth.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  user!:User;
+  user!: User;
 
   constructor(public authService: AuthService) {
 

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
-import { Product } from '../model/product'
+import { Product } from '../model/Product'
 @Injectable({
   providedIn: 'root'
 })
@@ -15,8 +15,8 @@ export class ProductService {
     return this.httpClient.get<Product[]>(this.baseURL);
   }
 
-  deleteProductById(pid:any):Observable<any> {
-   return this.httpClient.delete(this.baseURL+"/"+pid)
+  deleteProductById(pid: any): Observable<any> {
+    return this.httpClient.delete(this.baseURL + "/" + pid)
   }
 
 }

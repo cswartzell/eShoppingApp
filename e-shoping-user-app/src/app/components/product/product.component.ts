@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/model/product';
+import { Product } from '../../model/Product';
+import { CartService } from 'src/app/service/cart.service';
 import { ProductService } from 'src/app/service/product.service';
+import { WishlistService } from 'src/app/service/wishlist.service';
 
 @Component({
   selector: 'app-product',
@@ -9,8 +11,8 @@ import { ProductService } from 'src/app/service/product.service';
 })
 export class ProductComponent implements OnInit {
   products: Array<Product> = []; //why dont we use let here? 
-  constructor(public productService: ProductService) {
-
+  constructor(public productService: ProductService, public cartService: CartService, public wishlistService: WishlistService) {
+    // DI for services
   }
   price_sorted_up: boolean = true
   ngOnInit(): void {
@@ -52,11 +54,14 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(product: any) {
-    console.log(product);
+    // console.log(product);
+    product.qty = 1
+    this.cartService.addDataInCart(product);
   }
 
   addToWishlist(product: any) {
-    console.log(product);
+    // console.log(product);
+    this.wishlistService.addDataInWishlist(product);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Product } from "./product";
+import { Product } from "./Product";
 
 // map the json file or backend json data 
 export class Order {
