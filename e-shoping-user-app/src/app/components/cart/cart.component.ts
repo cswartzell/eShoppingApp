@@ -10,6 +10,7 @@ import { CartService } from 'src/app/service/cart.service';
 export class CartComponent implements OnInit {
 
   cart: Array<Cart> = [];
+  totalPrice: number = 0;
 
   constructor(public cartService: CartService) { }
 
@@ -17,29 +18,39 @@ export class CartComponent implements OnInit {
     this.cartService.getCart.subscribe({
       next: (data: any) => {
         this.cart = data;
-
+        this.calculateTotal();
       },
       error: (error: any) => { },
       complete: () => { }
 
     })
   }
+
+  calculateTotal(): void {
+    this.totalPrice = this.cart.reduce((prev: any, curr: any) => prev + curr.qty * curr.price, 0)
+  }
+
+  // Currently, items are added to the cart via the PRDOCUCT component... weird
+  // addToCart(product: any) {}
+
   removeDataFromCart(item: any) {
     this.cartService.removeDataFromCart(item)
   }
 
-  increment(cart:any, i:number) {
-    console.log(cart[i].title + " qty: " + (cart[i].qty+1));
-    
-    // cart[i].qty += 1;
+  increment(item: any, i: number) {
+    // console.log(item[i].title + " qty: " + (item[i].qty+1));
+    this.cart[i].qty = eval(item.qty) + 1;
+    this.calculateTotal()
   }
-  decrement(cart:any, i:number) {
-    console.log(cart[i].title + " qty: " + (cart[i].qty-1));
-    // if (cart[i].qty >= 0){
-    //   cart[i].qty -= 1;
-    // }
+  decrement(item: any, i: number) {
+    // console.log(item[i].title + " qty: " + (item[i].qty-1));
+    if (this.cart[i].qty > 0) {
+      this.cart[i].qty -= 1;
+    }
+    this.calculateTotal()
+
   }
-  remove(cart:any, i:number) {
+  remove(cart: any, i: number) {
     console.log(cart[i].title + " Removed");
 
   }

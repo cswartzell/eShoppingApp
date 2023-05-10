@@ -25,14 +25,14 @@ export class CartService {
         if (result == undefined) {
           data.push(product);
           //I DO NOT understand this call
-          // this.cartData.next(data);
+          this.cartData.next(data);
           console.log(product.title + " added to cart");
 
-        } 
-        else {
-          result.qty += 1;
-          console.log(product.title + " quantity updated");
         }
+        // else {
+        //   result.qty += 1;
+        //   console.log(product.title + " quantity updated");
+        // }
         // Need to actually make sure there is enough stock to add qty actually
 
       },
@@ -42,10 +42,10 @@ export class CartService {
   }
 
   removeDataFromCart(product: any) {
-    console.log("delete "+product+" from cart");
-    
+    console.log("delete " + product + " from cart");
+
   }
 
-  
+
 
 }

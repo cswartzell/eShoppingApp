@@ -4,6 +4,7 @@
             <th></th>
             <th>Item</th>
             <th>Price</th>
+            
             <th>Quantity</th>
             <th>+</th>
             <th>-</th>
@@ -14,11 +15,12 @@
             <td>{{item.title}}</td>
             <td>${{item.price}}.00</td>
             <td>{{item.qty}}</td>
-            <td><a (click)="increment(cart, i)"><img src="https://cdn-icons-png.flaticon.com/512/1237/1237946.png"
+            <td><a (click)="increment(item, i)"><img src="https://cdn-icons-png.flaticon.com/512/1237/1237946.png"
                         width="25px" height="25px"></a></td>
-            <td><a (click)="decrement(cart, i)"><img src="https://cdn-icons-png.flaticon.com/512/56/56889.png" width="25px"
+            <td><a (click)="decrement(item, i)"><img src="https://cdn-icons-png.flaticon.com/512/56/56889.png" width="25px"
                         height="25px"></a></td>
-            <td><a (click)="remove(cart, i)"><img src="https://cdn-icons-png.flaticon.com/512/63/63694.png" width="20px"
+            <td><a (click)="remove(item, i)"><img src="https://cdn-icons-png.flaticon.com/512/63/63694.png" width="20px"
                         height="20px"></a></td>
         </tr>
+        <tr>Total: ${{totalPrice}}.00</tr>
     </table>
