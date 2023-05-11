@@ -1,4 +1,6 @@
 <div class="container">
+    <input type="button" value="Add Product" class="btn btn-outline-primary" (click)="addProductDetails(addProduct)">
+
     <h2>Products</h2>
     <table>
         <tr>
@@ -6,7 +8,7 @@
             <th>Name</th>
             <th>Desription</th>
             <!-- <th>Price</th> -->
-            <th><input type="button" value="Price" (click)="sortByPrice()"></th> 
+            <th><input type="button" value="Price" (click)="sortByPrice()"></th>
             <th>Discount</th>
             <th>Rating</th>
             <th>Stock</th>
@@ -28,8 +30,107 @@
             <td><img src="{{product.thumbnail}}" width="130px" height="100px"></td>
             <!-- <td><input type="button" value="Delete Product" (click)="deleteProduct(product.id)"></td> -->
             <td><a (click)="deleteProduct(product.id)">
-                <img src="https://cdn-icons-png.flaticon.com/512/484/484611.png" height="30px" width="30px">
-            </a></td>
+                    <img src="https://cdn-icons-png.flaticon.com/512/484/484611.png" height="30px" width="30px">
+                </a></td>
         </tr>
     </table>
+    <ng-template #addProduct let-modal class="modal-dialog">
+        <div class="model-header">
+            <h2>Add Product Details</h2>
+        </div>
+        <div class="model-body">
+            <form [formGroup]="productForm" (ngSubmit)="storeProduct()">
+                <div class="row">
+                    <div class="col-3">
+                        <label>Title</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" formControlName="title" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <label>Description</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" formControlName="description" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <label>Price</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" formControlName="price" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <label>Disount Percentage</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" formControlName="discountPercentage" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <label>Rating</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" formControlName="rating" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <label>Stock</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" formControlName="stock" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <label>Brand</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" formControlName="Brand" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <label>Category</label>
+                    </div>
+                    <div class="col-3">
+                        <!-- <input type="text" formControlName="Category" /> -->
+                        <select formControlName="categories">
+                            <option value="select">--Select Category--</option>
+                            <option *ngFor="let category of categories" [value]="category.categoryName">{{category.categoryName}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <label>thumbnail</label>
+                    </div>
+                    <div class="col-3">
+                        <input type="text" formControlName="thumbnail" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-3">
+                        <!-- CURRENTLY THE SUBMIT BUTTON DOES FUCK ALL -->
+                        <input type="submit" value="Store Category" class="btn btn-outline-primary" />
+                    </div>
+                    <div class="col-3">
+                        <input type="button" value="Close" (click)="modal.close('close')"
+                            class="btn btn-outline-dark" />
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
+    </ng-template>
 </div>
