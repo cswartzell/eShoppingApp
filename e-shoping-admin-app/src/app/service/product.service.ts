@@ -19,4 +19,8 @@ export class ProductService {
    return this.httpClient.delete(this.baseURL+"/"+pid)
   }
 
+  storeProduct(product:Product):Observable<any>{
+    return this.httpClient.post(this.baseURL, product)
+  }
+
 }

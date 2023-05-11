@@ -1,1 +1,38 @@
-<p>users works!</p>
+<div class="container">
+    <!-- <input type="button" value="Add User" class="btn btn-outline-primary" (click)="addUser(addUser)"> -->
+
+    <h2>Users</h2>
+    <table>
+        <tr>
+            <th>Profile Image</th>
+            <th>UID</th>
+            <th>User Name</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Country</th>
+            <th>Pincode</th>
+
+        </tr>
+        <tr *ngFor="let user of users">
+            <td><img src="{{user.img}}" width="100px" height="100px"></td>
+            <td>{{user.id}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.fullName}}</td>
+            <td>{{user.emailid}}</td>
+            <td>{{user.contact}}</td>
+            <td>{{user.address.street}}</td>
+            <td>{{user.address.city}}</td>
+            <td>{{user.address.state}}</td>
+            <td>{{user.address.country}}</td>
+            <td>{{user.address.pincode}}</td>
+            <!-- 
+            <td><a (click)="deleteUser(user.id)">
+                <img src="https://cdn-icons-png.flaticon.com/512/484/484611.png" height="30px" width="30px">
+                </a></td> -->
+        </tr>
+    </table>
+</div>

@@ -35,7 +35,7 @@ export class ProductComponent implements OnInit {
     });
     this.categoryService.loadCategory().subscribe({
       next: (data: any) => {
-        this.categories=data;
+        this.categories = data;
       },
       error: (error: any) => console.log(error),
       complete: () => console.log("Categories Loaded")
@@ -77,8 +77,18 @@ export class ProductComponent implements OnInit {
 
   storeProduct() {
     let product = this.productForm.value;
-    console.log(product);
+    // console.log(product);
+    this.productService.storeProduct(product).subscribe({
+      next: (result: any) => console.log(result),
+      error: (error: any) => console.log(error),
+      complete: () => {
+        console.log("Product stored")
+        this.loadProducts();
+      }
+    })
 
+    // this.productForm.reset();
+    this.modal.dismissAll();
   }
 
 }

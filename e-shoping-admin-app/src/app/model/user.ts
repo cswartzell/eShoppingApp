@@ -7,7 +7,7 @@ export class User {
         public id: number,
         public username: string,
         public fullName: string,
-        public Address: Address,
+        public address: Address,
         // public address.street: string,
         // public address.city: string,
         // public address.state: string,
