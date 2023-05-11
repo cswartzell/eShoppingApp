@@ -14,6 +14,8 @@ import { ProductService } from 'src/app/service/product.service';
 export class ProductComponent implements OnInit {
   products: Array<Product> = []; //why dont we use let here? 
   productForm!: FormGroup
+  editProductId: number
+  editProductForm!: FormGroup
   categories: Array<Category> = [];
   constructor(public productService: ProductService, public formBuilder: FormBuilder, public modal: NgbModal, public categoryService: CategoryService) {
 
@@ -21,18 +23,6 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadProducts();
-    this.productForm = this.formBuilder.group({
-      title: [""],
-      description: [""],
-      price: [""],
-      discountPercentage: [""],
-      rating: [""],
-      stock: [""],
-      brand: [""],
-      category: [""],
-      thumbnail: [""],
-      // qty:[""]
-    });
     this.categoryService.loadCategory().subscribe({
       next: (data: any) => {
         this.categories = data;
@@ -71,23 +61,64 @@ export class ProductComponent implements OnInit {
     this.products.sort((p1, p2) => p1.price - p2.price);
   }
 
-  addProductDetails(addProduct: any) {
-    this.modal.open(addProduct, { size: "lg" });
+  addProductDetails(addProductModal: any) {
+    this.editProductId = undefined
+    this.productForm = this.formBuilder.group({
+      title: [""],
+      description: [""],
+      price: [""],
+      discountPercentage: [""],
+      rating: [""],
+      stock: [""],
+      brand: [""],
+      category: [""],
+      thumbnail: [""],
+      // qty:[""]
+    });
+    this.modal.open(addProductModal, { size: "lg" });
+  }
+
+  editProductDetails(editModal: any, editProduct: any) {
+    this.editProductId = editProduct.id;
+    this.productForm = this.formBuilder.group({
+      title: [editProduct.title],
+      description: [editProduct.description],
+      price: [editProduct.price],
+      discountPercentage: [editProduct.discountPercentage],
+      rating: [editProduct.rating],
+      stock: [editProduct.stock],
+      brand: [editProduct.brand],
+      category: [editProduct.category],
+      thumbnail: [editProduct.thumbnail],
+      // qty:[""]
+    });
+    this.modal.open(editModal, { size: "lg" });
   }
 
   storeProduct() {
     let product = this.productForm.value;
     // console.log(product);
-    this.productService.storeProduct(product).subscribe({
-      next: (result: any) => console.log(result),
-      error: (error: any) => console.log(error),
-      complete: () => {
-        console.log("Product stored")
-        this.loadProducts();
-      }
-    })
-
-    // this.productForm.reset();
+    if (this.editProductId == undefined) {
+      this.productService.storeProduct(product).subscribe({
+        next: (result: any) => console.log(result),
+        error: (error: any) => console.log(error),
+        complete: () => {
+          console.log("Product stored")
+          this.loadProducts();
+        }
+      })
+    } else {
+      this.productService.patchProductByPid(this.editProductId, product).subscribe({
+        next: (result: any) => console.log(result),
+        error: (error: any) => console.log(error),
+        complete: () => {
+          console.log("Product updated")
+          this.loadProducts();
+        }
+      })
+    }    
+    
+    this.productForm.reset();
     this.modal.dismissAll();
   }
 

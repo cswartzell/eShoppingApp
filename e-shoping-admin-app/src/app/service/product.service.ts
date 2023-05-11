@@ -23,4 +23,7 @@ export class ProductService {
     return this.httpClient.post(this.baseURL, product)
   }
 
+  patchProductByPid(pid: any, product: any): Observable<any> {
+    return this.httpClient.patch(this.baseURL+"/"+pid, product)
+  }
 }

@@ -32,6 +32,10 @@
             <td><a (click)="deleteProduct(product.id)">
                     <img src="https://cdn-icons-png.flaticon.com/512/484/484611.png" height="30px" width="30px">
                 </a></td>
+
+            <!-- EDIT PRODUCT ATTEMPT -->
+            <input type="button" value="Edit Product" class="btn btn-outline-primary"
+                (click)="editProductDetails(addProduct, product)">
         </tr>
     </table>
     <ng-template #addProduct let-modal class="modal-dialog">
@@ -45,7 +49,7 @@
                         <label>Title</label>
                     </div>
                     <div class="col-3">
-                        <input type="text" formControlName="title" />
+                        <input type="text" formControlName="title"/>
                     </div>
                 </div>
                 <div class="row">
@@ -93,7 +97,7 @@
                         <label>Brand</label>
                     </div>
                     <div class="col-3">
-                        <input type="text" formControlName="Brand" />
+                        <input type="text" formControlName="brand" />
                     </div>
                 </div>
                 <div class="row">
@@ -102,9 +106,10 @@
                     </div>
                     <div class="col-3">
                         <!-- <input type="text" formControlName="Category" /> -->
-                        <select formControlName="categories">
-                            <option value="select">--Select Category--</option>
-                            <option *ngFor="let category of categories" [value]="category.categoryName">{{category.categoryName}}</option>
+                        <select formControlName="category">
+                            <!-- <option value="select">--Select Category--</option> -->
+                            <option *ngFor="let category of categories" [value]="category.categoryName">
+                                {{category.categoryName}}</option>
                         </select>
                     </div>
                 </div>
@@ -119,8 +124,7 @@
 
                 <div class="row">
                     <div class="col-3">
-                        <!-- CURRENTLY THE SUBMIT BUTTON DOES FUCK ALL -->
-                        <input type="submit" value="Store Product" class="btn btn-outline-primary"/>
+                        <input type="submit" value="Store Product" class="btn btn-outline-primary" />
                     </div>
                     <div class="col-3">
                         <input type="button" value="Close" (click)="modal.close('close')"
